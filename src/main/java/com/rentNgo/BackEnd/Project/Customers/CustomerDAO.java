@@ -11,7 +11,7 @@ public interface CustomerDAO {
 
     int updateCustomers(Integer customerId, Customer updateCustomer);
 
-    Customer selectCustomerById(Integer customerId);
+    Customer selectCustomerByEmail(String email);
 
     List<Customer> selectAllCustomers();
 

@@ -13,20 +13,19 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @GetMapping
+    @GetMapping(path = "/get-all-customers")
     public void listAllCustomers() {
         System.out.println(customerService.getFullListCustomer());
     }
 
-
-    @PostMapping
+    @PostMapping(path = "/add-new-customer")
     void createNewCustomer(@RequestBody Customer customer) {
         System.out.println("POST REQUEST.....");
         customerService.addNewCustomer(customer);
         System.out.println(customer);
     }
 
-    @PutMapping(path = "{customerId}")
+    @PutMapping(path = "/edit/{customerId}")
     public void updateCustomer(@PathVariable("customerId") Integer customerId, @RequestBody Customer updateCustomer) {
         System.out.println("UPDATE REQUEST.....");
         customerService.updateCustomers(customerId, updateCustomer);

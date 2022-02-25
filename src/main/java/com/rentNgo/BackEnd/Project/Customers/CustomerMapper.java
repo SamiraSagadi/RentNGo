@@ -1,7 +1,6 @@
 package com.rentNgo.BackEnd.Project.Customers;
 
 import org.springframework.jdbc.core.RowMapper;
-
 import java.sql.*;
 
 public class CustomerMapper implements RowMapper<Customer> {

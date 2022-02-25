@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class CustomerJDBCTemplate implements CustomerDAO {
+public class  CustomerJDBCTemplate implements CustomerDAO {
 
     private JdbcTemplate jdbcTemplate;
 
@@ -15,16 +15,16 @@ public class CustomerJDBCTemplate implements CustomerDAO {
     }
 
     @Override
-    public Customer selectCustomerById(Integer customerId) {
-        var sql = """
+    public Customer selectCustomerByEmail(String email) {
+        String sql = """
                 SELECT customer_id, first_name, last_name, email FROM customers WHERE customers.email = ?;
                 """;
-        return jdbcTemplate.queryForObject(sql, new CustomerMapper(), customerId);
+        return jdbcTemplate.queryForObject(sql, new CustomerMapper(), email);
     }
 
     @Override
     public List<Customer> selectAllCustomers() {
-        var sql = """
+        String sql = """
                 SELECT customer_id, first_name, last_name, email FROM customers
                 """;
         List<Customer> customers = jdbcTemplate.query(sql, new CustomerMapper());
