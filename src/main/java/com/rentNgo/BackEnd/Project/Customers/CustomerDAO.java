@@ -1,7 +1,5 @@
 package com.rentNgo.BackEnd.Project.Customers;
 
-import org.springframework.context.annotation.Bean;
-
 import java.util.List;
 
 public interface CustomerDAO {

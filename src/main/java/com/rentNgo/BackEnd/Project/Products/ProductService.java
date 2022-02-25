@@ -1,6 +1,8 @@
 package com.rentNgo.BackEnd.Project.Products;
 
 import com.rentNgo.BackEnd.Project.Customers.Customer;
+import com.rentNgo.BackEnd.Project.Customers.CustomerDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,6 +10,11 @@ import java.util.List;
 @Service
 public class ProductService {
     private ProductDAO productDAO;
+
+    @Autowired
+    public void ProductService(ProductDAO productDAO) {
+        this.productDAO = productDAO;
+    }
 
     private void checkProductInputIsNotNull(Product product) {
         if (product.getName() == null) {

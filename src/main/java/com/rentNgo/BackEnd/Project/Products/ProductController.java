@@ -16,12 +16,12 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping(path = "get-all-products")
+    @GetMapping(path = "/get-all-products")
     public void fullProductList() {
         System.out.println(productService.getProductList());
     }
 
-    @PostMapping(path = "create-new-product")
+    @PostMapping(path = "/create-new-product")
     void createNewProduct(@RequestBody Product product) {
         System.out.println("POST REQUEST.....");
         productService.addProduct(product);

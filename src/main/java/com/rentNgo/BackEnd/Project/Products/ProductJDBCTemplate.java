@@ -1,7 +1,5 @@
 package com.rentNgo.BackEnd.Project.Products;
 
-import com.rentNgo.BackEnd.Project.Customers.Customer;
-import com.rentNgo.BackEnd.Project.Customers.CustomerMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -46,7 +44,7 @@ public class ProductJDBCTemplate implements ProductDAO {
     @Override
     public Product selectProductById(Integer productId) {
         String sql = """
-                SELECT product_id, name, category, price FROM products WHERE product.id = ?
+                SELECT product_id, name, category, price FROM products WHERE product.product_id = ?
                 """;
         return jdbcTemplate.queryForObject(sql, new ProductMapper(), productId);
     }

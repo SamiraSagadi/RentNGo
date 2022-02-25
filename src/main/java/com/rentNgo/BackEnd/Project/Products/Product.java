@@ -6,19 +6,15 @@ public class Product {
     private String category;
     private double price;
 
-    public Product() {
-
-    }
-
-    public Integer getProductId() {
-        return productId;
-    }
-
     public Product(Integer productId, String name, String category, double price) {
         this.productId = productId;
         this.name = name;
         this.category = category;
         this.price = price;
+    }
+
+    public Product() {
+
     }
 
     public void setProductId(Integer productId) {
