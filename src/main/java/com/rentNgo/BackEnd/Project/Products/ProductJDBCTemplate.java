@@ -17,8 +17,8 @@ public class ProductJDBCTemplate implements ProductDAO {
     @Override
     public int addProduct(Product product) {
         String sql = """
-                INSERT INTO products (name, category, price)
-                VALUES (?, ?, ?)
+                INSERT INTO products (name, category, price, availability)
+                VALUES (?, ?, ?, ?)
                 """;
         int rowsAffected = jdbcTemplate.update(sql, product.getName(), product.getCategory(), product.getPrice());
         return rowsAffected;
@@ -35,16 +35,16 @@ public class ProductJDBCTemplate implements ProductDAO {
     public int updateProduct(Integer productId, Product updateProduct) {
         String sql = """ 
                 UPDATE products 
-                SET (name, category, price) = (?, ?, ?)
+                SET (name, category, price, availability) = (?, ?, ?,?)
                 WHERE product_id = ?              
                 """;
-        return jdbcTemplate.update(sql, updateProduct.getName(), updateProduct.getCategory(), updateProduct.getPrice(), productId);
+        return jdbcTemplate.update(sql, updateProduct.getName(), updateProduct.getCategory(), updateProduct.getPrice(), updateProduct.getAvailability(), productId);
     }
 
     @Override
     public Product selectProductById(Integer productId) {
         String sql = """
-                SELECT product_id, name, category, price FROM products WHERE product.product_id = ?
+                SELECT product_id, name, category, price, availability FROM products WHERE product.product_id = ?
                 """;
         return jdbcTemplate.queryForObject(sql, new ProductMapper(), productId);
     }
@@ -56,5 +56,13 @@ public class ProductJDBCTemplate implements ProductDAO {
                 """;
         List<Product> products = jdbcTemplate.query(sql, new ProductMapper());
         return products;
+    }
+
+    @Override
+    public Product selectProductsByName(String name) {
+        String sql = """
+                SELECT * FROM products WHERE name = ?
+                """;
+        return jdbcTemplate.queryForObject(sql, new ProductMapper(), name);
     }
 }

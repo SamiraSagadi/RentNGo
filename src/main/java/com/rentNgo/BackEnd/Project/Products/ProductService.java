@@ -26,6 +26,9 @@ public class ProductService {
         if (product.getPrice() <= 0) {
             throw new IllegalStateException("Price cannot be less than or equal to zero");
         }
+        if (product.getAvailability() == null) {
+            throw new IllegalStateException("Availability of the product cannot be null");
+        }
     }
 
     public int addProduct(Product product) {

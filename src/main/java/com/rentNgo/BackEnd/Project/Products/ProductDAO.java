@@ -11,5 +11,7 @@ public interface ProductDAO {
 
     Product selectProductById(Integer productId);
 
+    Product selectProductsByName(String name);
+
     List<Product> selectAllProducts();
 }
