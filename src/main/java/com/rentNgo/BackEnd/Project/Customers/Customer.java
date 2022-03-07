@@ -9,19 +9,21 @@ public class Customer {
     private String firstName;
     private String lastName;
     private String email;
+    private String password;
 
-    public Customer(Integer customerId, String firstName, String lastName, String email) {
+    public Customer(Integer customerId, String firstName, String lastName, String email, String password) {
         this.customerId = customerId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.password = password;
     }
 
     //No arguable constructor
     public Customer() {
     }
 
-    public long getCustomerId() {
+    public Integer getCustomerId() {
         return customerId;
     }
 
@@ -53,6 +55,14 @@ public class Customer {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
@@ -60,6 +70,7 @@ public class Customer {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

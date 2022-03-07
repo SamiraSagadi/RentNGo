@@ -23,7 +23,7 @@ public class ProductService {
         if (product.getCategory() == null) {
             throw new IllegalStateException("Last Name cannot be null");
         }
-        if (product.getPrice() <= 0) {
+        if (product.getDailyPrice() <= 0) {
             throw new IllegalStateException("Price cannot be less than or equal to zero");
         }
         if (product.getAvailability() == null) {

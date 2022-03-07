@@ -4,19 +4,23 @@ public class Product {
     private Integer productId;
     private String name;
     private String category;
-    private double price;
+    private double dailyPrice;
     private String availability;
 
-    public Product(Integer productId, String name, String category, double price, String availability) {
+    public Product(Integer productId, String name, String category, double dailyPrice, String availability) {
         this.productId = productId;
         this.name = name;
         this.category = category;
-        this.price = price;
+        this.dailyPrice = dailyPrice;
         this.availability =availability;
     }
 
     public Product() {
 
+    }
+
+    public Integer getProductId() {
+        return productId;
     }
 
     public void setProductId(Integer productId) {
@@ -39,12 +43,12 @@ public class Product {
         this.category = category;
     }
 
-    public double getPrice() {
-        return price;
+    public double getDailyPrice() {
+        return dailyPrice;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setDailyPrice(double dailyPrice) {
+        this.dailyPrice = dailyPrice;
     }
 
     public String getAvailability() {
@@ -61,7 +65,7 @@ public class Product {
                 "productId=" + productId +
                 ", name='" + name + '\'' +
                 ", category='" + category + '\'' +
-                ", price=" + price +
+                ", dailyPrice=" + dailyPrice +
                 ", availability='" + availability + '\'' +
                 '}';
     }

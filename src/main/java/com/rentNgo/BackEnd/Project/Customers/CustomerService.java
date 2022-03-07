@@ -1,15 +1,19 @@
 package com.rentNgo.BackEnd.Project.Customers;
 
+import com.fasterxml.jackson.annotation.JacksonInject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class CustomerService {
     private CustomerDAO customerDAO;
+    private Customer customer;
 
     @Autowired
     public void CustomerService(CustomerDAO customerDAO) {
@@ -37,6 +41,12 @@ public class CustomerService {
         }
     }
 
+    public void selectCustomerByEmail(String email, String password) {
+        customerDAO.selectCustomerByEmail(email, password);
+        if(email == null) {
+            System.out.println("Email cannot be empty, please enter an email.");
+        }
+    }
 
     public int addNewCustomer(Customer customer) {
         checkCustomerInputIsNotNull(customer);
@@ -61,4 +71,12 @@ public class CustomerService {
             throw new IllegalStateException("Couldn't update customer!");
         }
     }
+
+//    public int createOrderID(){
+//        LocalDate orderDate =  LocalDate.now();
+//        LocalTime orderTime = LocalTime.now();
+//        int orderID = customerDAO.createOrderID(this.customer.getCustomerId(), orderDate, orderTime);
+//        customerDAO.addToOrderTable(this.customer.getCustomerId(), orderId);
+//        return orderID;
+//    }
 }

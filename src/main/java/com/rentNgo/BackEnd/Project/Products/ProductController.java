@@ -1,7 +1,5 @@
 package com.rentNgo.BackEnd.Project.Products;
 
-import com.rentNgo.BackEnd.Project.Customers.Customer;
-import com.rentNgo.BackEnd.Project.Customers.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +27,7 @@ public class ProductController {
     }
 
     @PutMapping(path = "edit/{productId}")
-    public void updateCustomer(@PathVariable("productId") Integer productId, @RequestBody Product updateProduct) {
+    public void updateProduct(@PathVariable("productId") Integer productId, @RequestBody Product updateProduct) {
         System.out.println("UPDATE REQUEST.....");
         productService.updateProduct(productId, updateProduct);
     }

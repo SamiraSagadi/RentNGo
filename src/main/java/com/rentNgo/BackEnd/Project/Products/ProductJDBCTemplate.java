@@ -17,10 +17,10 @@ public class ProductJDBCTemplate implements ProductDAO {
     @Override
     public int addProduct(Product product) {
         String sql = """
-                INSERT INTO products (name, category, price, availability)
+                INSERT INTO products (name, category, daily_price, availability)
                 VALUES (?, ?, ?, ?)
                 """;
-        int rowsAffected = jdbcTemplate.update(sql, product.getName(), product.getCategory(), product.getPrice());
+        int rowsAffected = jdbcTemplate.update(sql, product.getName(), product.getCategory(), product.getDailyPrice(), product.getAvailability());
         return rowsAffected;
     }
 
@@ -35,16 +35,16 @@ public class ProductJDBCTemplate implements ProductDAO {
     public int updateProduct(Integer productId, Product updateProduct) {
         String sql = """ 
                 UPDATE products 
-                SET (name, category, price, availability) = (?, ?, ?,?)
+                SET (name, category, daily_price, availability) = (?, ?, ?,?)
                 WHERE product_id = ?              
                 """;
-        return jdbcTemplate.update(sql, updateProduct.getName(), updateProduct.getCategory(), updateProduct.getPrice(), updateProduct.getAvailability(), productId);
+        return jdbcTemplate.update(sql, updateProduct.getName(), updateProduct.getCategory(), updateProduct.getDailyPrice(), updateProduct.getAvailability(), productId);
     }
 
     @Override
     public Product selectProductById(Integer productId) {
         String sql = """
-                SELECT product_id, name, category, price, availability FROM products WHERE product.product_id = ?
+                SELECT product_id, name, category, daily_price, availability FROM products WHERE product.product_id = ?
                 """;
         return jdbcTemplate.queryForObject(sql, new ProductMapper(), productId);
     }

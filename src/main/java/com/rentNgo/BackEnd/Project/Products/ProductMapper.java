@@ -9,7 +9,7 @@ public class ProductMapper implements RowMapper<Product> {
         product.setProductId(resultSet.getInt("product_id"));
         product.setName(resultSet.getString("name"));
         product.setCategory(resultSet.getString("category"));
-        product.setPrice(resultSet.getDouble("price"));
+        product.setDailyPrice(resultSet.getDouble("daily_price"));
         return product;
     }
 }
