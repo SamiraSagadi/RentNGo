@@ -1,26 +1,26 @@
-package com.rentNgo.BackEnd.Project.Renters;
+package com.rentNgo.BackEnd.Project.Owners;
 
-public class Renter {
+public class Owner {
 
-    private Integer renterId;
+    private Integer ownerId;
     private String fullName;
     private String email;
 
-    public Renter(Integer renterId, String fullName, String email) {
-        this.renterId = renterId;
+    public Owner(Integer ownerId, String fullName, String email) {
+        this.ownerId = ownerId;
         this.fullName = fullName;
         this.email = email;
     }
 
-    public Renter() {
+    public Owner() {
     }
 
-    public Integer getRenterId() {
-        return renterId;
+    public Integer getOwnerId() {
+        return ownerId;
     }
 
-    public void setRenterId(Integer renterId) {
-        this.renterId = renterId;
+    public void setOwnerId(Integer ownerId) {
+        this.ownerId = ownerId;
     }
 
     public String getFullName() {
@@ -41,8 +41,8 @@ public class Renter {
 
     @Override
     public String toString() {
-        return "Renter{" +
-                "renterId=" + renterId +
+        return "Owner{" +
+                "ownerId=" + ownerId +
                 ", fullName='" + fullName + '\'' +
                 ", email='" + email + '\'' +
                 '}';
