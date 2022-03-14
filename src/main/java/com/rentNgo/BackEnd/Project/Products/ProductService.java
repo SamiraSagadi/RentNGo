@@ -12,7 +12,7 @@ public class ProductService {
     private ProductDAO productDAO;
 
     @Autowired
-    public void ProductService(ProductDAO productDAO) {
+    public ProductService(ProductDAO productDAO) {
         this.productDAO = productDAO;
     }
 

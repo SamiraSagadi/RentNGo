@@ -10,7 +10,7 @@ public class OwnerService {
     private OwnerDAO ownerDAO;
 
     @Autowired
-    public void OwnerService(OwnerDAO ownerDAO) {
+    public OwnerService(OwnerDAO ownerDAO) {
         this.ownerDAO = ownerDAO;
     }
 

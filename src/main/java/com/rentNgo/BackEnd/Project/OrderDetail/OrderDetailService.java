@@ -8,7 +8,7 @@ public class OrderDetailService {
     private OrderDetailDAO orderDetailDAO;
 
     @Autowired
-    public void OrderDetailService(OrderDetailDAO orderDetailDAO){
+    public OrderDetailService(OrderDetailDAO orderDetailDAO){
         this.orderDetailDAO = orderDetailDAO;
     }
 

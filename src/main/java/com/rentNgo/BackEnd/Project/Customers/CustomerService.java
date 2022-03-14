@@ -13,10 +13,10 @@ import java.util.Optional;
 @Service
 public class CustomerService {
     private CustomerDAO customerDAO;
-    private Customer customer;
+
 
     @Autowired
-    public void CustomerService(CustomerDAO customerDAO) {
+    public CustomerService(CustomerDAO customerDAO) {
         this.customerDAO = customerDAO;
     }
 
@@ -41,11 +41,11 @@ public class CustomerService {
         }
     }
 
-    public void selectCustomerByEmail(String email, String password) {
-        customerDAO.selectCustomerByEmail(email, password);
+    public Customer selectCustomerByEmail(String email) {
         if(email == null) {
             System.out.println("Email cannot be empty, please enter an email.");
         }
+        return customerDAO.selectCustomerByEmail(email);
     }
 
     public int addNewCustomer(Customer customer) {
@@ -72,11 +72,5 @@ public class CustomerService {
         }
     }
 
-//    public int createOrderID(){
-//        LocalDate orderDate =  LocalDate.now();
-//        LocalTime orderTime = LocalTime.now();
-//        int orderID = customerDAO.createOrderID(this.customer.getCustomerId(), orderDate, orderTime);
-//        customerDAO.addToOrderTable(this.customer.getCustomerId(), orderId);
-//        return orderID;
-//    }
+
 }

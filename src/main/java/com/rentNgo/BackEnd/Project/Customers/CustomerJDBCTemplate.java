@@ -19,7 +19,7 @@ public class  CustomerJDBCTemplate implements CustomerDAO {
     }
 
     @Override
-    public Customer selectCustomerByEmail(String email, String password) {
+    public Customer selectCustomerByEmail(String email) {
         String selectCustomerSql = """
                 SELECT customer_id, first_name, last_name, email FROM customers WHERE customers.email = ? AND customers.password= ?;
                 """;
