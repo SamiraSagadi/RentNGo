@@ -29,7 +29,7 @@ public class  CustomerJDBCTemplate implements CustomerDAO {
     @Override
     public List<Customer> selectAllCustomers() {
         String selectAllSql = """
-                SELECT customer_id, first_name, last_name, email FROM customers
+                SELECT * FROM customers
                 """;
         List<Customer> customers = jdbcTemplate.query(selectAllSql, new CustomerMapper());
         return customers;

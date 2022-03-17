@@ -3,6 +3,8 @@ package com.rentNgo.BackEnd.Project.Customers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class CustomerController {
 
@@ -14,8 +16,8 @@ public class CustomerController {
     }
 
     @GetMapping(path = "/get-all-customers")
-    public void listAllCustomers() {
-        System.out.println(customerService.getFullListCustomer());
+    public List<Customer> listAllCustomers() {
+        return customerService.getFullListCustomer();
     }
 
     @PostMapping(path = "/add-new-customer")

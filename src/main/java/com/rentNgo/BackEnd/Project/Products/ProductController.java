@@ -3,6 +3,8 @@ package com.rentNgo.BackEnd.Project.Products;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequestMapping(path = "products")
 @RestController
 public class ProductController {
@@ -15,8 +17,8 @@ public class ProductController {
     }
 
     @GetMapping(path = "/get-all-products")
-    public void fullProductList() {
-        System.out.println(productService.getProductList());
+    public List<Product> fullProductList() {
+        return productService.getProductList();
     }
 
     @PostMapping(path = "/create-new-product")

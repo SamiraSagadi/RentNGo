@@ -5,10 +5,12 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.when;
 
 public class CustomerServiceTest {
     private CustomerService underTest;
@@ -26,7 +28,9 @@ public class CustomerServiceTest {
         given(customerDAO.selectAllCustomers()).willReturn(null);
         //When -> there is no customers
         //Then
-        assertThatThrownBy(()-> underTest.getFullListCustomer()).isInstanceOf(IllegalStateException.class).hasMessageContaining("No Customers were found");
+        assertThatThrownBy(()-> underTest.getFullListCustomer())
+                .isInstanceOf(IllegalStateException.class)
+                .hasMessageContaining("No Customers were found");
     }
 
     @Test
@@ -65,4 +69,15 @@ public class CustomerServiceTest {
         System.out.println(expectedCustomer);
         System.out.println(actualCustomer);
     }
+
+//    @Test
+//    void shouldAddCustomerToCustomerList(){
+//        //Given
+//        Customer customer = new Customer(1, "Dylan", "Brook", "brook1@hotmail.com", "pass123word");
+//        List<Customer> customers = Arrays.asList(customer);
+//        when(customerDAO.selectAllCustomers()).thenReturn(customers);
+//        //When
+//
+//        //Then
+//    }
 }

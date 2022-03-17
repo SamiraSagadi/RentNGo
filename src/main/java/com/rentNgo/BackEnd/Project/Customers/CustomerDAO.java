@@ -15,6 +15,4 @@ public interface CustomerDAO {
 
     List<Customer> selectAllCustomers();
 
-//    int createOrderID(int customerId, LocalDate localDate, LocalTime localTime);
-
 }

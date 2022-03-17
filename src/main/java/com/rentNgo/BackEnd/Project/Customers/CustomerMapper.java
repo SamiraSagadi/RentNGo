@@ -10,6 +10,7 @@ public class CustomerMapper implements RowMapper<Customer> {
         customer.setFirstName(resultSet.getString("first_name"));
         customer.setLastName(resultSet.getString("last_name"));
         customer.setEmail(resultSet.getString("email"));
+        customer.setPassword(resultSet.getString("password"));
         return customer;
 
     }

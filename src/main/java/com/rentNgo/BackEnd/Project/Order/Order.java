@@ -1,9 +1,7 @@
 package com.rentNgo.BackEnd.Project.Order;
 
-import com.rentNgo.BackEnd.Project.Customers.Customer;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class Order {
     private Integer orderId;
